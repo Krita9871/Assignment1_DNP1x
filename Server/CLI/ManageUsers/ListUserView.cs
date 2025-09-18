@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using RepositoryContracts;
 
 namespace CLI.ManageUsers;
@@ -20,7 +21,7 @@ public class ListUserView
         try
         {
 
-            var users = userRepository.GetManyAsync();
+            var users = await userRepository.GetManyAsync();
             if (!users.Any())
             {
                 Console.WriteLine("There is no users :(");

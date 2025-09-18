@@ -19,7 +19,7 @@ public class UpdateUserView
 
         Console.WriteLine("Enter user ID: ");
 
-        var existingUsers = userRepository.GetManyAsync();
+        var existingUsers = await userRepository.GetManyAsync();
 
 
 
@@ -38,10 +38,10 @@ public class UpdateUserView
         }
 
         Console.WriteLine("Enter a new Username >>>");
-        string username = Console.ReadLine();
+        string? username = Console.ReadLine();
 
         Console.WriteLine("Enter a new Password >>>");
-        string password = Console.ReadLine();
+        string? password = Console.ReadLine();
 
         if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
         {

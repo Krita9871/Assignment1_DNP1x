@@ -20,10 +20,10 @@ public class CreateUserView
         try
         {
             Console.WriteLine("Write a username:");
-            string username = Console.ReadLine();
+            string? username = Console.ReadLine();
 
             Console.WriteLine("Write a password");
-            string password = Console.ReadLine();
+            string? password = Console.ReadLine();
 
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
@@ -32,7 +32,7 @@ public class CreateUserView
 
             }
 
-            var existingUsers = userRepository.GetManyAsync();
+            var existingUsers = await userRepository.GetManyAsync();
             if (existingUsers.Any(u => u.UserName == username))
             {
                 Console.WriteLine("The written username already exists");

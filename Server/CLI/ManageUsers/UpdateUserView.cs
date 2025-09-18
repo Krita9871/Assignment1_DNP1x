@@ -25,7 +25,7 @@ public class UpdateUserView
 
         if (!int.TryParse(Console.ReadLine(), out int userId))
         {
-            Console.WriteLine("Invalid used ID.");
+            Console.WriteLine("Invalid user ID.");
             return;
         }
 

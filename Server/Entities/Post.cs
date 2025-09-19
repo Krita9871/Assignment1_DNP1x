@@ -1,9 +1,8 @@
 ﻿public class Post
 {
-    public int Id { get; set; }
+    public int Id { get; }
     public string? Title { get; set; }
     public string Body { get; set; } = "";
-    public int AuthorId { get; set; }
-    public int SubForumId { get; set; }
+    public int UserId { get; set; }
 
  }

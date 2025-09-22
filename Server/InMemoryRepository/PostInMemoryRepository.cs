@@ -36,7 +36,7 @@ public class PostInMemoryRepository : IPostRepository
         return Task.CompletedTask;
     }
 
-    public Task<Post> AddSync(Post post)
+    public Task<Post> AddAsync(Post post)
     {
         post.Id = posts.Any()
             ? posts.Max(p => p.Id) + 1
@@ -57,8 +57,8 @@ public class PostInMemoryRepository : IPostRepository
         return Task.FromResult(post);
     }
 
-    public IQueryable<Post> GetManyAsync()
+    public Task<IQueryable<Post>> GetManyAsync()
     {
-        return posts.AsQueryable();
+        return Task.FromResult(posts.AsQueryable());
     }
 }

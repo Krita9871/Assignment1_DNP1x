@@ -46,12 +46,12 @@ public class UserInMemoryRepository : IUserRepository
         return Task.FromResult(user);
     }
 
-    public Task<IQueryable<User>> GetManyAsync()
+    public IQueryable<User> GetManyAsync()
     {
-        return Task.FromResult(users.AsQueryable());
+        return users.AsQueryable();
     }
 
-    public Task<User> Addsync(User user)
+    public Task<User> AddAsync(User user)
     {
         user.Id = users.Any()
             ? users.Max(p => p.Id) + 1

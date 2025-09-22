@@ -8,7 +8,7 @@ public class ICommentInMemoryRepository : ICommentRepository
 {
     public List<Comment> comments = [];
 
-    public Task<Comment> AddSync(Comment comment)
+    public Task<Comment> AddAsync(Comment comment)
     {
         comment.Id = comments.Any()
             ? comments.Max(p => p.Id) + 1
@@ -29,9 +29,9 @@ public class ICommentInMemoryRepository : ICommentRepository
         return Task.CompletedTask;
     }
 
-    public IQueryable<Comment> GetManyAsync()
+    public Task<IQueryable<Comment>> GetManyAsync()
     {
-        return comments.AsQueryable();
+        return Task.FromResult(comments.AsQueryable());
     }
 
     public Task<Comment> GetSingleAsync(int id)

@@ -22,13 +22,14 @@ public class CreateCommentsView
         var postId = int.Parse(Console.ReadLine());
         Console.WriteLine($"> User id: ");
         var userId = int.Parse(Console.ReadLine());
-        Comment comment = new()
+        var comment = new Comment()
         {
             Body = body,
             PostId = postId,
             UserId = userId
         };
         Comment created = await commentRepository.AddAsync(comment);
+        Console.WriteLine($"You've created a new comment: Body of a comment {created.Body}, User id {created.UserId}, Post id {created.PostId}");
         return await Task.FromResult(created);
     }
     

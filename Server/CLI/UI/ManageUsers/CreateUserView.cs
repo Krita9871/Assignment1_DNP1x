@@ -15,13 +15,14 @@ public class CreateUserView
 
     public async Task CreateUserAsync()
     {
+        
         Console.WriteLine(">>>Create a new user: ");
         
         Console.WriteLine("Write a username:");
-        string? username = Console.ReadLine();
+        var username = Console.ReadLine();
 
         Console.WriteLine("Write a password");
-        string? password = Console.ReadLine();
+        var password = Console.ReadLine();
 
         if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
         {
@@ -30,11 +31,7 @@ public class CreateUserView
 
         }
         var existingUsers = userRepository.GetManyAsync();
-        if (!existingUsers.Any()) {
-                Console.WriteLine("No users found :(");
-                return;
-        }
-            
+        
         if (existingUsers.Any(u => u.UserName == username))
         {
             Console.WriteLine("The written username already exists");
@@ -49,7 +46,7 @@ public class CreateUserView
 
         var createdUser = await userRepository.AddAsync(user);
         Console.WriteLine($"You've created a new user {user.UserName} with id {createdUser.Id}");
-            
+        
     }
         
 }

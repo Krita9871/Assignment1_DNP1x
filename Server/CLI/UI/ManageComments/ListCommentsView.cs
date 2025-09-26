@@ -22,11 +22,12 @@ public class ListCommentsView
             Console.WriteLine(">>> No comments found ;(");
             return;
         }
-        
-        
+
+
         foreach (var comment in comments)
-            {
-            Console.WriteLine($">>> Comment #{comment.Id}");
+        {
+            Console.WriteLine($">>> Comment id#{comment.Id}, id of a user{comment.UserId}, #id of a post{comment.PostId}, Body of the comment{comment.Body}");
+            
             }
         
 

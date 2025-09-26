@@ -10,3 +10,15 @@ C:\Users\Bobuzok\Documents\GitHub\Assignment1_DNP1x\Server\Entities\obj\Debug\ne
 C:\Users\Bobuzok\Documents\GitHub\Assignment1_DNP1x\Server\Entities\obj\Debug\net10.0\refint\Entities.dll
 C:\Users\Bobuzok\Documents\GitHub\Assignment1_DNP1x\Server\Entities\obj\Debug\net10.0\Entities.pdb
 C:\Users\Bobuzok\Documents\GitHub\Assignment1_DNP1x\Server\Entities\obj\Debug\net10.0\ref\Entities.dll
+C:\Users\Rene\Documents\SEM3\DNP\Assignement1\Assignment1_DNP1x\Server\Entities\bin\Debug\net10.0\Entities.deps.json
+C:\Users\Rene\Documents\SEM3\DNP\Assignement1\Assignment1_DNP1x\Server\Entities\bin\Debug\net10.0\Entities.dll
+C:\Users\Rene\Documents\SEM3\DNP\Assignement1\Assignment1_DNP1x\Server\Entities\bin\Debug\net10.0\Entities.pdb
+C:\Users\Rene\Documents\SEM3\DNP\Assignement1\Assignment1_DNP1x\Server\Entities\obj\Debug\net10.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Rene\Documents\SEM3\DNP\Assignement1\Assignment1_DNP1x\Server\Entities\obj\Debug\net10.0\Entities.AssemblyInfoInputs.cache
+C:\Users\Rene\Documents\SEM3\DNP\Assignement1\Assignment1_DNP1x\Server\Entities\obj\Debug\net10.0\Entities.AssemblyInfo.cs
+C:\Users\Rene\Documents\SEM3\DNP\Assignement1\Assignment1_DNP1x\Server\Entities\obj\Debug\net10.0\Entities.csproj.CoreCompileInputs.cache
+C:\Users\Rene\Documents\SEM3\DNP\Assignement1\Assignment1_DNP1x\Server\Entities\obj\Debug\net10.0\Entities.sourcelink.json
+C:\Users\Rene\Documents\SEM3\DNP\Assignement1\Assignment1_DNP1x\Server\Entities\obj\Debug\net10.0\Entities.dll
+C:\Users\Rene\Documents\SEM3\DNP\Assignement1\Assignment1_DNP1x\Server\Entities\obj\Debug\net10.0\refint\Entities.dll
+C:\Users\Rene\Documents\SEM3\DNP\Assignement1\Assignment1_DNP1x\Server\Entities\obj\Debug\net10.0\Entities.pdb
+C:\Users\Rene\Documents\SEM3\DNP\Assignement1\Assignment1_DNP1x\Server\Entities\obj\Debug\net10.0\ref\Entities.dll

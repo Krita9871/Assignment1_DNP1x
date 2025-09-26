@@ -1,8 +1,10 @@
-﻿class Program
+﻿using System.Threading.Tasks;
+
+class Program
 {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
               CLI.UI.CLI cxl = new CLI.UI.CLI();
-              cxl.Run();
+              await cxl.Run();
         }
 }

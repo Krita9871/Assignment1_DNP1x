@@ -20,7 +20,8 @@ public class ListUserView
         List<User> list = userList.ToList();
         foreach (var user in list)
         {
-            Console.WriteLine(user);
+
+            Console.WriteLine($"{user.UserName}, {user.Password}, {user.Id}");
         }
         
     }

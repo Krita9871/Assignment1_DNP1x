@@ -29,23 +29,46 @@ public class CommentFileRepository : ICommentRepository
         return comment;
      }
 
-    public Task DeleteAsync(int id)
+    public async Task DeleteAsync(int id)
     {
-        throw new NotImplementedException();
+        string commentsAsJson = await File.ReadAllTextAsync(filePath);
+        List<Comment> comments = JsonSerializer.Deserialize<List<Comment>>(commentsAsJson)!;
+        var commentToDelete = comments.FirstOrDefault(c => c.Id == id);
+        comments.Remove(commentToDelete);
+        await File.WriteAllTextAsync(filePath, JsonSerializer.Serialize(comments));
     }
 
     public Task<IQueryable<Comment>> GetManyAsync()
     {
-        throw new NotImplementedException();
+        string commentsAsJson = File.ReadAllTextAsync(filePath).Result;
+        List<Comment> comments = JsonSerializer.Deserialize<List<Comment>>(commentsAsJson)!;
+        
+        return Task.FromResult(comments.AsQueryable());
     }
 
-    public Task<Comment> GetSingleAsync(int id)
+    public async Task<Comment> GetSingleAsync(int id)
     {
-        throw new NotImplementedException();
+        string commentsAsJson = await File.ReadAllTextAsync(filePath);
+        List<Comment> comments = JsonSerializer.Deserialize<List<Comment>>(commentsAsJson)!;
+        
+        
+        var comment = comments.SingleOrDefault(c => c.Id == id);
+        if (comment == null)
+        {
+            throw new Exception("Comment not found");
+        }
+        return comment;
     }
 
-    public Task UpdateAsync(Comment comment)
+    public async Task UpdateAsync(Comment comment)
     {
-        throw new NotImplementedException();
+        string commentsAsJson = await File.ReadAllTextAsync(filePath);
+        List<Comment> comments = JsonSerializer.Deserialize<List<Comment>>(commentsAsJson)!;
+        
+        var commentToUpdate = comments.SingleOrDefault(c => c.Id == comment.Id);
+        comments.Remove(commentToUpdate);
+        comments.Add(comment);
+        commentsAsJson = JsonSerializer.Serialize(comments);
+        await File.WriteAllTextAsync(filePath, commentsAsJson);
     }
 }

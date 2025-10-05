@@ -14,7 +14,7 @@ public class ListCommentsView
     public async Task ListCommentsAsync()
     {
         Console.WriteLine($">>> List of all comments");
-        var comments = await commentRepository.GetManyAsync();
+        var comments = commentRepository.GetManyAsync();
         
         
         if (!comments.Any())

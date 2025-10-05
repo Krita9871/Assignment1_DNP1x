@@ -1,3 +1,4 @@
+using System.Reflection.Metadata;
 using RepositoryContracts;
 
 namespace InMemoryRepository;
@@ -57,8 +58,8 @@ public class PostInMemoryRepository : IPostRepository
         return Task.FromResult(post);
     }
 
-    public Task<IQueryable<Post>> GetManyAsync()
+    public IQueryable<Post> GetManyAsync()
     {
-        return Task.FromResult(posts.AsQueryable());
+        return posts.AsQueryable();
     }
 }

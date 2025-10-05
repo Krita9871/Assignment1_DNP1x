@@ -29,9 +29,9 @@ public class ICommentInMemoryRepository : ICommentRepository
         return Task.CompletedTask;
     }
 
-    public Task<IQueryable<Comment>> GetManyAsync()
+    public IQueryable<Comment> GetManyAsync()
     {
-        return Task.FromResult(comments.AsQueryable());
+        return comments.AsQueryable();
     }
 
     public Task<Comment> GetSingleAsync(int id)

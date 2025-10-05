@@ -13,7 +13,7 @@ public class CreateUserView
         this.userRepository = userRepository;
     }
 
-    public async Task CreateUserAsync()
+    public async Task<User> CreateUserAsync()
     {
         
         Console.WriteLine(">>>Create a new user: ");
@@ -27,7 +27,6 @@ public class CreateUserView
         if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
         {
             Console.WriteLine("Either username or password is empty");
-            return;
 
         }
         var existingUsers = userRepository.GetManyAsync();
@@ -35,10 +34,9 @@ public class CreateUserView
         if (existingUsers.Any(u => u.UserName == username))
         {
             Console.WriteLine("The written username already exists");
-            return;
         }
 
-        var user = new User
+        User user = new ()
         {
             UserName = username,
             Password = password
@@ -46,6 +44,7 @@ public class CreateUserView
 
         var createdUser = await userRepository.AddAsync(user);
         Console.WriteLine($"You've created a new user {user.UserName} with id {createdUser.Id}");
+        return await Task.FromResult(createdUser); 
         
     }
         

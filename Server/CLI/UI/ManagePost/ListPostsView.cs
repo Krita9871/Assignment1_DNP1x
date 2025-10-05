@@ -16,7 +16,7 @@ public class ListPostsView
     {
         Console.WriteLine($">>> Listing all posts");
 
-        var posts = await postRepository.GetManyAsync();
+        var posts = postRepository.GetManyAsync();
 
         if (!posts.Any())
         {
@@ -26,7 +26,7 @@ public class ListPostsView
 
         foreach (var post in posts)
         {
-            Console.WriteLine(post);
+            Console.WriteLine($"{post.Id} - {post.Title}, {post.Id}, {post.UserId}");
         }
 
     }

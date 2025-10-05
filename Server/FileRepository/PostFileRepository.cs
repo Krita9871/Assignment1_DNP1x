@@ -51,10 +51,10 @@ public class PostFileRepository : IPostRepository
         
     }
 
-    public Task<IQueryable<Post>> GetManyAsync()
+    public IQueryable<Post> GetManyAsync()
     {
-        string postsAsJson = File.ReadAllText(filePath);
+        string postsAsJson = File.ReadAllTextAsync(filePath).Result;
         List<Post> posts = JsonSerializer.Deserialize<List<Post>>(postsAsJson)!;
-        return Task.FromResult(posts.AsQueryable());
+        return posts.AsQueryable();
     }
 }

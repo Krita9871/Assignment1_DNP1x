@@ -38,12 +38,11 @@ public class CommentFileRepository : ICommentRepository
         await File.WriteAllTextAsync(filePath, JsonSerializer.Serialize(comments));
     }
 
-    public Task<IQueryable<Comment>> GetManyAsync()
+    public IQueryable<Comment> GetManyAsync()
     {
         string commentsAsJson = File.ReadAllTextAsync(filePath).Result;
         List<Comment> comments = JsonSerializer.Deserialize<List<Comment>>(commentsAsJson)!;
-        
-        return Task.FromResult(comments.AsQueryable());
+        return comments.AsQueryable();
     }
 
     public async Task<Comment> GetSingleAsync(int id)

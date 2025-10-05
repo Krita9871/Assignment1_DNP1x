@@ -15,19 +15,22 @@ public class ManageCommentView
 
     public async Task ManageCommentsAsync()
     {
-        Console.WriteLine(">>> Manage Comments");
-        Console.WriteLine("1. Create a new comment");
-        Console.WriteLine("2. List all comments");
-        Console.WriteLine("Any number to return to main menu");
-
-        if (!int.TryParse(Console.ReadLine(), out int number))
-        {
-            Console.WriteLine("Invalid number");
-            return;
-        }
-
         while (true)
         {
+            
+            Console.WriteLine(">>> Manage Comments");
+            Console.WriteLine("1. Create a new comment");
+            Console.WriteLine("2. List all comments");
+            Console.WriteLine("Any number to return to main menu");
+
+            if (!int.TryParse(Console.ReadLine(), out int number))
+            {
+                Console.WriteLine("Invalid number");
+                return;
+            }
+
+            
+            
             switch (number)
             {
                 case 1:
@@ -37,8 +40,9 @@ public class ManageCommentView
                     await listCommentsView.ListCommentsAsync();
                     break;
                 default:
-                    break;
+                    return;
             }
         }
+        
     }
 }

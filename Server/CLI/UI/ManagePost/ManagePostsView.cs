@@ -18,17 +18,18 @@ public class ManagePostsView
 
     public async Task ManagePostAsync()
     {
-        Console.WriteLine($">>> Manage posts");
-        Console.WriteLine("1. Create a post");
-        Console.WriteLine("2. List a posts");
-        Console.WriteLine("Any number to Return to CLI menu");
-        if (!int.TryParse(Console.ReadLine(), out int number))
-        {
-            Console.WriteLine($"Invalid number");
-        }
 
         while (true)
         {
+            Console.WriteLine($">>> Manage posts");
+            Console.WriteLine("1. Create a post");
+            Console.WriteLine("2. List a posts");
+            Console.WriteLine("Any number to Return to CLI menu");
+            if (!int.TryParse(Console.ReadLine(), out int number))
+            {
+                Console.WriteLine($"Invalid number");
+            }
+            
             switch (number)
             {
                 case 1: 
@@ -40,9 +41,11 @@ public class ManagePostsView
                     break;
                 
                 default:
-                    return ;
+                    return;
             }
+            
         }
+        
     }
 
 }  

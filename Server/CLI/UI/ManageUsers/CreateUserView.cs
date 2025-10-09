@@ -13,7 +13,7 @@ public class CreateUserView
         this.userRepository = userRepository;
     }
 
-    public async Task<User> CreateUserAsync()
+    public async Task CreateUserAsync()
     {
         
         Console.WriteLine(">>>Create a new user: ");
@@ -34,19 +34,19 @@ public class CreateUserView
         if (existingUsers.Any(u => u.UserName == username))
         {
             Console.WriteLine("The written username already exists");
-
+            return;
         }
         else
         {
-            User user = new ()
-        {
-            UserName = username,
-            Password = password
-        };
+                User user = new ()
+            {
+                UserName = username,
+                Password = password
+            };
 
-        var createdUser = await userRepository.AddAsync(user);
-        Console.WriteLine($"You've created a new user {user.UserName} with id {createdUser.Id}");
-        return await Task.FromResult(createdUser); 
+            var createdUser = await userRepository.AddAsync(user);
+            Console.WriteLine($"You've created a new user {user.UserName} with id {createdUser.Id}");
+            await Task.FromResult(createdUser); 
         }
         
     }

@@ -33,7 +33,7 @@ public class CommentFileRepository : ICommentRepository
     {
         string commentsAsJson = await File.ReadAllTextAsync(filePath);
         List<Comment> comments = JsonSerializer.Deserialize<List<Comment>>(commentsAsJson)!;
-        var commentToDelete = comments.FirstOrDefault(c => c.Id == id);
+        var commentToDelete = comments.FirstOrDefault(c => c.Id == id)!;
         comments.Remove(commentToDelete);
         await File.WriteAllTextAsync(filePath, JsonSerializer.Serialize(comments));
     }

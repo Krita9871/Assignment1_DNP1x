@@ -3,15 +3,15 @@ using CLI.UI.ManageComments;
 using CLI.UI.ManagePost;
 using CLI.UI.ManageUsers;
 using RepositoryContracts;
-using InMemoryRepository;
+using FileRepository;
 
 namespace CLI.UI;
 
 public class CLI
 {
-    private readonly ICommentRepository  commentRepository = new ICommentInMemoryRepository();
-    private readonly IUserRepository userRepository = new UserInMemoryRepository();
-    private readonly IPostRepository postRepository = new PostInMemoryRepository();
+    private readonly ICommentRepository  commentRepository = new CommentFileRepository();
+    private readonly IUserRepository userRepository = new UserFileRepository();
+    private readonly IPostRepository postRepository = new PostFileRepository();
     public async Task Run()
     {
         ManageCommentView manageCommentView = new ManageCommentView(commentRepository);
